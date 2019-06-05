@@ -63,7 +63,7 @@ def create_user():
 
 @app.route('/authenticate', methods = ["POST"])
 def authenticate():
-    time.sleep(8)
+    time.sleep(1)
     message = json.loads(request.data)
     username = message['username']
     password = message['password']
