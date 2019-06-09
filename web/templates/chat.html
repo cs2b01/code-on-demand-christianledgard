@@ -89,7 +89,13 @@ function startSession() {
 			alert(JSON.stringify(response));
 		}
 	});
+	getAllUsers(idUserConnected,idUserToTalk);
 	talkTo(2);
+}
+
+function changeWindow(val) {
+	window.location.reload();
+	talkTo(val);
 }
 
 function talkTo(idUserToTalk_) {
@@ -101,7 +107,6 @@ function talkTo(idUserToTalk_) {
 
 
 function getDataChats(idUserConnected,idUserToTalk){
-	getAllUsers(idUserConnected,idUserToTalk);
 	getNameUserToTalk(idUserToTalk);
 	getNameUserConnected(idUserConnected);
 
@@ -245,7 +250,7 @@ function getAllUsers(id,id2){
 			for (var i = 0; i < arrayLength; i++) {
 				fullname = "".concat(response[i]["name"]," ",response[i]["fullname"]);
 				id = response[i]["id"];
-				$('<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p onclick="talkTo(3)" class="name">'+fullname+'</p> <p class="preview">You just got LITT up, Mike.</p> </div> </div> </li>').appendTo($('#contacts ul'));
+				$('<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p onclick="changeWindow(3)" class="name">'+fullname+'</p> <p class="preview">You just got LITT up, Mike.</p> </div> </div> </li>').appendTo($('#contacts ul'));
 			}
 		},
 		error: function(response){
@@ -261,8 +266,6 @@ $('.submit').click(function() {
 
 $(window).on('keydown', function(e) {
   if (e.which == 13) {
-    message = newMessage();
-  	sendMessage(message);
     return false;
   }
 });
