@@ -97,7 +97,6 @@
                 "username": username,
                 "password": password
             });
-
         $.ajax({
             url:'/authenticate',
             type:'POST',
@@ -116,7 +115,7 @@
 				}else{
 					$('#loading').hide();
 					$('#ok').show();
-					window.location.href = "http://127.0.0.1:8080"
+					window.location.href = "http://127.0.0.1:8080/"
 				}
             }
         });

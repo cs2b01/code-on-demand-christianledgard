@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16051b00-6d4f-42dd-a100-f5cc678983a2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web/static/css/chat_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/templates/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/templates/crud_chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/templates/crud_chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/templates/styles_chat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/layered.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/layered.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/chat.db" beforeDir="false" afterPath="$PROJECT_DIR$/web/chat.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/model/entities.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/model/entities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/crud_chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/crud_chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/templates/login2.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/login2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,27 +15,25 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="code-on-demand-christianledgard" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="67" column="49" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="49" />
+            <state relative-caret-position="620">
+              <caret line="187" lean-forward="true" selection-start-line="187" selection-end-line="187" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/model/entities.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#78#0" expanded="true" />
+                <element signature="e#382#634#0" />
+                <element signature="e#698#987#0" />
+                <element signature="e#1051#1378#0" />
+                <element signature="e#1573#1810#0" />
+                <element signature="e#1524#1819#0" />
+                <element signature="e#3203#3517#0" />
+                <element signature="e#3585#3832#0" />
               </folding>
             </state>
           </provider>
@@ -51,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/templates/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="124" column="12" lean-forward="true" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
+            <state relative-caret-position="106">
+              <caret line="247" column="183" selection-start-line="247" selection-start-column="183" selection-end-line="247" selection-end-column="183" />
             </state>
           </provider>
         </entry>
@@ -77,7 +68,30 @@
       <find>calc(100% -</find>
       <find>clip</find>
       <find>img</find>
+      <find>fa fa</find>
+      <find>body</find>
+      <find>postMessage</find>
+      <find>message-input</find>
+      <find>trim</find>
+      <find>newMessage</find>
+      <find>alert</find>
+      <find>newMesssage</find>
+      <find>concat</find>
+      <find>getName</find>
+      <find>Specter</find>
+      <find>harb</find>
+      <find>get_chats_id</find>
+      <find>settings</find>
+      <find>http://emilcarlsson.se/assets/harveyspecter.png</find>
+      <find>http://emilcarlsson.se/assets/mikeross.png</find>
+      <find>http://emilcarlsson.se/assets/louislitt.png</find>
+      <find>fromFullName</find>
+      <find>getAllUsers</find>
+      <find>ERROR</find>
     </findStrings>
+    <replaceStrings>
+      <replace>/static/images/user.png</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,24 +105,25 @@
         <option value="$PROJECT_DIR$/web/templates/success.html" />
         <option value="$PROJECT_DIR$/web/templates/fail.html" />
         <option value="$PROJECT_DIR$/web/templates/loign.js" />
-        <option value="$PROJECT_DIR$/web/templates/login.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/web/templates/login2.js" />
         <option value="$PROJECT_DIR$/web/templates/chat_styles.css" />
         <option value="$PROJECT_DIR$/web/static/css/chat_styles.css" />
-        <option value="$PROJECT_DIR$/web/templates/crud_chat.js" />
         <option value="$PROJECT_DIR$/web/templates/crud_users.js" />
         <option value="$PROJECT_DIR$/web/templates/crud_chat.html" />
-        <option value="$PROJECT_DIR$/web/templates/login2.html" />
         <option value="$PROJECT_DIR$/web/model/entities.py" />
+        <option value="$PROJECT_DIR$/web/templates/crud_chat.js" />
+        <option value="$PROJECT_DIR$/web/templates/login2.html" />
+        <option value="$PROJECT_DIR$/web/templates/login.html" />
         <option value="$PROJECT_DIR$/web/server.py" />
         <option value="$PROJECT_DIR$/web/templates/chat.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
     <option name="width" value="638" />
-    <option name="height" value="800" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -139,13 +154,6 @@
               <item name="code-on-demand-christianledgard" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="code-on-demand-christianledgard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="code-on-demand-christianledgard" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="code-on-demand-christianledgard" type="b2602c69:ProjectViewProjectNode" />
@@ -236,19 +244,19 @@
       <option name="presentableId" value="Default" />
       <updated>1558536507359</updated>
       <workItem from="1559832492720" duration="2690000" />
-      <workItem from="1559835661458" duration="11637000" />
+      <workItem from="1559835661458" duration="35045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14327000" />
+    <option name="totallyTimeSpent" value="37735000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="638" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="721" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21308725" />
+      <window_info id="Favorites" order="0" sideWeight="0.50236964" side_tool="true" weight="0.22213247" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49763033" visible="true" weight="0.22213247" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="3" weight="0.32885906" />
       <window_info anchor="bottom" id="Version Control" order="0" />
@@ -256,9 +264,9 @@
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.39937598" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.39863014" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.16164383" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.2845787" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -303,7 +311,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/code_on_demand_christianledgard$server.coverage" NAME="server Coverage Results" MODIFIED="1559948697327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
+    <SUITE FILE_PATH="coverage/code_on_demand_christianledgard$server.coverage" NAME="server Coverage Results" MODIFIED="1560048736576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/database/connector.py">
@@ -329,22 +337,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/styles.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/static/css/chat_styles.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -367,24 +361,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/crud_chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-676">
-          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/crud_chat.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/login2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -395,10 +375,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/sql/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="442" selection-start-line="442" selection-end-line="442" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="1250" selection-start-line="1250" selection-end-line="1250" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/crud_chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/model/entities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/login2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/login2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="121" column="11" lean-forward="true" selection-start-line="121" selection-start-column="11" selection-end-line="121" selection-end-column="11" />
+        <state relative-caret-position="225">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -407,30 +429,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/model/entities.py">
+    <entry file="file://$PROJECT_DIR$/web/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="67" column="49" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="49" />
+        <state relative-caret-position="620">
+          <caret line="187" lean-forward="true" selection-start-line="187" selection-end-line="187" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
+            <element signature="e#382#634#0" />
+            <element signature="e#698#987#0" />
+            <element signature="e#1051#1378#0" />
+            <element signature="e#1573#1810#0" />
+            <element signature="e#1524#1819#0" />
+            <element signature="e#3203#3517#0" />
+            <element signature="e#3585#3832#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="124" column="12" lean-forward="true" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
+        <state relative-caret-position="106">
+          <caret line="247" column="183" selection-start-line="247" selection-start-column="183" selection-end-line="247" selection-end-column="183" />
         </state>
       </provider>
     </entry>

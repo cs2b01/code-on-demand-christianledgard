@@ -16,14 +16,14 @@
 
 
 </head>
-<body onload="startSession()">
+<body onload="getDataChats()">
 
 
 <div id="frame">
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
-				<img id="profile-img" src="/static/images/user.png" class="online" alt="" />
+				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
 				<p id="fromFullName"></p>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 				<li class="contact active">
 					<div class="wrap">
 						<span class="contact-status busy"></span>
-						<img src="/static/images/user.png" alt="" />
+						<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 						<div class="meta">
 							<p class="name" id="smallToFullName"></p>
 							<p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
@@ -52,7 +52,7 @@
 	</div>
 	<div class="content">
 		<div class="contact-profile">
-			<img src="/static/images/user.png" alt="" />
+			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 			<p id="toFullName"></p>
 		</div>
 		<div class="messages">
@@ -70,40 +70,14 @@
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script >$(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
-
 var idUserConnected = 1;
 var idUserToTalk = 2;
 
-function startSession() {
-	$.ajax({
-		url: '/start',
-		type:'GET',
-		contentType: 'application/json',
-		dataType:'json',
-		success: function(response){
-			idUserConnected = response.id;
-		},
-		async: false,
-		error: function(response){
-			idUserConnected = response.id;
-			alert(JSON.stringify(response));
-		}
-	});
-	talkTo(2);
-}
 
-function talkTo(idUserToTalk_) {
-	idUserToTalk = idUserToTalk_;
-	getDataChats(idUserConnected,idUserToTalk);
-}
-
-
-
-
-function getDataChats(idUserConnected,idUserToTalk){
-	getAllUsers(idUserConnected,idUserToTalk);
+function getDataChats(){
 	getNameUserToTalk(idUserToTalk);
 	getNameUserConnected(idUserConnected);
+	//getAllUsers(idUserConnected);
 
 	var url = '/chat/getConversation/'.concat(idUserConnected.toString(),'/and/',idUserToTalk.toString());
 	$.ajax({
@@ -121,7 +95,7 @@ function getDataChats(idUserConnected,idUserToTalk){
 				else{
 					whoIs = "replies"
 				}
-				$('<li class="'+whoIs+'"><img src="/static/images/user.png" alt="" /><p>' + response[i]["content"] + '</p></li>').appendTo($('.messages ul'));
+				$('<li class="'+whoIs+'"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + response[i]["content"] + '</p></li>').appendTo($('.messages ul'));
 				}
 		},
 		error: function(response){
@@ -167,7 +141,7 @@ $("#status-options ul li").click(function() {
 
 function newMessage() {
 	message = $('#messageInput').val();
-	$('<li class="sent"><img src="/static/images/user.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+	$('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
 	$('.message-input input').val(null);
 	$('.contact.active .preview').html('<span>You: </span>' + message);
 	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
@@ -231,9 +205,9 @@ function getNameUserConnected(id) {
 	});
 }
 
-
-function getAllUsers(id,id2){
-	var url = '/user/allExcept/'.concat(id.toString(),'/and/',id2.toString());
+/*
+function getAllUsers(id){
+	var url = '/user/allExcept/'.concat(id.toString());
 	var fullname;
 	$.ajax({
 		url: url,
@@ -244,25 +218,27 @@ function getAllUsers(id,id2){
 			var arrayLength = response.length;
 			for (var i = 0; i < arrayLength; i++) {
 				fullname = "".concat(response[i]["name"]," ",response[i]["fullname"]);
-				id = response[i]["id"];
-				$('<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p onclick="talkTo(3)" class="name">'+fullname+'</p> <p class="preview">You just got LITT up, Mike.</p> </div> </div> </li>').appendTo($('#contacts ul'));
+				$('<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="http://emilcarlsson.se/assets/louislitt.png" alt="" /> <div class="meta"> <p class="name">'+fullname+'</p> <p class="preview">You just got LITT up, Mike.</p> </div> </div> </li>').appendTo($('#contacts ul'));
 			}
+
+
 		},
 		error: function(response){
 			alert(JSON.stringify(response));
 		}
 	});
 }
-
+*/
 $('.submit').click(function() {
   message = newMessage();
   sendMessage(message);
+
 });
 
 $(window).on('keydown', function(e) {
   if (e.which == 13) {
     message = newMessage();
-  	sendMessage(message);
+    sendMessage(message);
     return false;
   }
 });

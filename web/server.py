@@ -1,6 +1,7 @@
 from flask import Flask,render_template, request, session, Response, redirect
 from database import connector
 from model import entities
+from operator import itemgetter, attrgetter
 import json
 import time
 
@@ -14,8 +15,13 @@ def index():
     return render_template('chat.html')
 
 
+@app.route('/static/<content>')
+def static_content(content):
+    return render_template(content)
+
+
 # - - - - - - - - - - - - - - - - - - - - - -#
-# - - - - C R U D  C H A T - - - - - - - - - #
+#  - - D E F A U L T - C R U D  C H A T - -  #
 # - - - - - - - - - - - - - - - - - - - - - -#
 
 @app.route('/chat', methods = ['GET'])
@@ -64,20 +70,20 @@ def delete_chat():
     session.commit()
     return "Chat Deleted"
 
+# - - - - - - - - - - - - - - - - - - - - - -#
+# - - - - - - C R U D  C H A T - - - - - - - #
+# - - - - - - - - - - - - - - - - - - - - - -#
 
 @app.route('/chat/getConversation/<id1>/and/<id2>', methods = ['GET'])
 def get_chats_id(id1, id2):
-    def sortVal(val):
-        return val["sent_on"]
-
     db_session = db.getSession(engine)
 
     info1 = db_session.query(entities.Message).filter(
-        entities.Message.user_from_id == id1 and
+        entities.Message.user_from_id == id1).filter(
         entities.Message.user_to_id == id2)
 
     info2 = db_session.query(entities.Message).filter(
-        entities.Message.user_from_id == id2 and
+        entities.Message.user_from_id == id2).filter(
         entities.Message.user_to_id == id1)
     data = []
     try:
@@ -85,33 +91,39 @@ def get_chats_id(id1, id2):
             data.append(user)
         for user in info2:
             data.append(user)
-        #data.sort(key=sortVal)
+        if data:
+            data = sorted(data, key=attrgetter('sent_on'), reverse=False)
+        else:
+            raise Exception
         return Response(json.dumps(data, cls=connector.AlchemyEncoder), status=200, mimetype='application/json')
     except Exception:
         message = {'status': 404, 'message': 'Not Found'}
         return Response(message, status=404, mimetype='application/json')
 
 
+@app.route('/newMesssage', methods = ['POST'])
+def newMesssage():
+    try:
+        c = json.loads(request.data)
+        message = entities.Message(
+            content=c['content'],
+            user_from_id=c['user_from_id'],
+            user_to_id=c['user_to_id']
+        )
+        session = db.getSession(engine)
+        session.add(message)
+        session.commit()
+        message = {'message': 'Authorized'}
+        return Response(message, status=200, mimetype='application/json')
+    except Exception:
+        message = {'message': 'Unauthorized'}
+        return Response(message, status=401, mimetype='application/json')
+
 
 # - - - - - - - - - - - - - - - - - - - - - -#
-# - - - - C R U D  U S E R S - - - - - - - - #
+# - - D E F A U L T - C R U D  U S E R S - - #
 # - - - - - - - - - - - - - - - - - - - - - -#
 
-@app.route('/static/<content>')
-def static_content(content):
-    return render_template(content)
-
-
-@app.route('/users/<id>', methods = ['GET'])
-def get_user(id):
-    db_session = db.getSession(engine)
-    users = db_session.query(entities.User).filter(entities.User.id == id)
-    for user in users:
-        js = json.dumps(user, cls=connector.AlchemyEncoder)
-        return  Response(js, status=200, mimetype='application/json')
-
-    message = { 'status': 404, 'message': 'Not Found'}
-    return Response(message, status=404, mimetype='application/json')
 
 
 @app.route('/users', methods = ['GET'])
@@ -160,12 +172,36 @@ def delete_user():
     return "User Deleted"\
 
 # - - - - - - - - - - - - - - - - - - - - - -#
-# - - - - - - - - C H A T  - - - - - - - - - #
+# - - - - - - C R U D  U S E R S - - - - - - #
 # - - - - - - - - - - - - - - - - - - - - - -#
 
+@app.route('/user/<id>', methods = ['GET'])
+def get_user(id):
+    db_session = db.getSession(engine)
+    users = db_session.query(entities.User).filter(entities.User.id == id)
+    for user in users:
+        js = json.dumps(user, cls=connector.AlchemyEncoder)
+        return  Response(js, status=200, mimetype='application/json')
 
+    message = { 'status': 404, 'message': 'Not Found'}
+    return Response(message, status=404, mimetype='application/json')
 
+@app.route('/user/allExcept/<id>/and/<id2>', methods = ['GET'])
+def get_user_allExcept(id,id2):
+    db_session = db.getSession(engine)
+    try:
+        dbResponse = db_session.query(entities.User).filter(entities.User.id != id).filter(entities.User.id != id2)
+        data = []
+        for user in dbResponse:
+            data.append(user)
+        return Response(json.dumps(data, cls=connector.AlchemyEncoder), status=200, mimetype='application/json')
+    except Exception:
+        message = { 'status': 404, 'message': 'Not Found'}
+        return Response(message, status=404, mimetype='application/json')
 
+# - - - - - - - - - - - - - - - - - - - - - -#
+# - - - - - - - - L O G I N  - - - - - - - - #
+# - - - - - - - - - - - - - - - - - - - - - -#
 
 @app.route('/authenticate', methods = ["POST"])
 def authenticate():
@@ -180,12 +216,23 @@ def authenticate():
             ).filter(entities.User.username == username
             ).filter(entities.User.password == password
             ).one()
+        session['logged']=user.id
         message = {'message': 'Authorized'}
         return Response(message, status=200, mimetype='application/json')
     except Exception:
         message = {'message': 'Unauthorized'}
         return Response(message, status=401, mimetype='application/json')
 
+@app.route('/start', methods = ['GET'])
+def start_user():
+    try:
+        db_session = db.getSession(engine)
+        user = db_session.query(entities.User).filter(entities.User.id == session['logged']).first()
+        js = json.dumps(user, cls=connector.AlchemyEncoder)
+        return Response(js, status=200, mimetype='application/json')
+    except Exception:
+        message = {'status': 404, 'message': 'Not Found'}
+        return Response(message, status=404, mimetype='application/json')
 
 if __name__ == '__main__':
     app.secret_key = ".."
