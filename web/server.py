@@ -186,11 +186,11 @@ def get_user(id):
     message = { 'status': 404, 'message': 'Not Found'}
     return Response(message, status=404, mimetype='application/json')
 
-@app.route('/user/allExcept/<id>/and/<id2>', methods = ['GET'])
-def get_user_allExcept(id,id2):
+@app.route('/user/allExcept/<id>', methods = ['GET'])
+def get_user_allExcept(id):
     db_session = db.getSession(engine)
     try:
-        dbResponse = db_session.query(entities.User).filter(entities.User.id != id).filter(entities.User.id != id2)
+        dbResponse = db_session.query(entities.User).filter(entities.User.id != id)
         data = []
         for user in dbResponse:
             data.append(user)

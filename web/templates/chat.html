@@ -33,7 +33,7 @@
 		</div>
 		<div id="contacts">
 			<ul>
-				<li class="contact active">
+				<!--<li class="contact active">
 					<div class="wrap">
 						<span class="contact-status busy"></span>
 						<img src="/static/images/user.png" alt="" />
@@ -42,7 +42,7 @@
 							<p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
 						</div>
 					</div>
-				</li>
+				</li>-->
 			</ul>
 		</div>
 		<div id="bottom-bar">
@@ -71,10 +71,11 @@
 <script >$(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
 
-var idUserConnected = 1;
-var idUserToTalk = 2;
+var idUserConnected;
+var idUserToTalk;
 
 function startSession() {
+	console.log("startSession");
 	$.ajax({
 		url: '/start',
 		type:'GET',
@@ -85,28 +86,29 @@ function startSession() {
 		},
 		async: false,
 		error: function(response){
-			idUserConnected = response.id;
+			idUserConnected = idUserConnected;
 			alert(JSON.stringify(response));
 		}
 	});
-	getAllUsers(idUserConnected,idUserToTalk);
+	getAllUsers(idUserConnected);
 	talkTo(2);
 }
 
-function changeWindow(val) {
-	window.location.reload();
-	talkTo(val);
+function somef(a) {
+	//idUserToTalk = val;
+	console.log("changeWindow");
+	//$('.messages ul').empty();
+	//getDataChats();
 }
 
 function talkTo(idUserToTalk_) {
 	idUserToTalk = idUserToTalk_;
-	getDataChats(idUserConnected,idUserToTalk);
+	console.log("talkTo");
+	getDataChats();
 }
 
-
-
-
-function getDataChats(idUserConnected,idUserToTalk){
+function getDataChats(){
+	console.log("getDataChats");
 	getNameUserToTalk(idUserToTalk);
 	getNameUserConnected(idUserConnected);
 
@@ -117,7 +119,6 @@ function getDataChats(idUserConnected,idUserToTalk){
 		contentType: 'application/json',
 		dataType:'json',
 		success: function(response){
-
 			var arrayLength = response.length;
 			for (var i = 0; i < arrayLength; i++) {
 				if(response[i]["user_from_id"]==idUserConnected){
@@ -193,13 +194,17 @@ function sendMessage(textMessage) {
             data : message,
             dataType:'json',
             success: function(response){
+            	alert(JSON.stringify(response));
             },
             error: function(response){
+            	alert(JSON.stringify(response));
             }
         });
 }
 
+
 function getNameUserToTalk(id) {
+	console.log("getNameUserToTalk");
 	var url = '/user/'.concat(id.toString());
 	var fullname;
 	$.ajax({
@@ -219,6 +224,7 @@ function getNameUserToTalk(id) {
 }
 
 function getNameUserConnected(id) {
+	console.log("getNameUserConnected");
 	var url = '/user/'.concat(id.toString());
 	var fullname;
 	$.ajax({
@@ -237,8 +243,9 @@ function getNameUserConnected(id) {
 }
 
 
-function getAllUsers(id,id2){
-	var url = '/user/allExcept/'.concat(id.toString(),'/and/',id2.toString());
+function getAllUsers(id){
+	console.log("getAllUsers");
+	var url = '/user/allExcept/'.concat(id.toString());
 	var fullname;
 	$.ajax({
 		url: url,
@@ -246,12 +253,21 @@ function getAllUsers(id,id2){
 		contentType: 'application/json',
 		dataType:'json',
 		success: function(response){
-			var arrayLength = response.length;
-			for (var i = 0; i < arrayLength; i++) {
+			var i = 0;
+			$.each(response, function () {
 				fullname = "".concat(response[i]["name"]," ",response[i]["fullname"]);
 				id = response[i]["id"];
-				$('<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p onclick="changeWindow(3)" class="name">'+fullname+'</p> <p class="preview">You just got LITT up, Mike.</p> </div> </div> </li>').appendTo($('#contacts ul'));
-			}
+
+				f = '<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p  class="name">';
+				f += fullname;
+
+				f += '</p><p class="preview">Last chat sent.</p> </div> </div> </li>';
+
+				f += '<input type="button" onclick="somef(3)"/>';
+				i += 1;
+				$('#contacts ul').append(f);
+
+			});
 		},
 		error: function(response){
 			alert(JSON.stringify(response));
@@ -266,6 +282,8 @@ $('.submit').click(function() {
 
 $(window).on('keydown', function(e) {
   if (e.which == 13) {
+  	message = newMessage();
+  	sendMessage(message);
     return false;
   }
 });
