@@ -5,7 +5,11 @@
 
 
 <!DOCTYPE html><html class=''>
-<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+<head>
+	<<title>Chat by Ledgard</title>
+	<script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
+	<script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+	<meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://use.typekit.net/hoy3lrg.js"></script>
@@ -24,7 +28,7 @@
 		<div id="profile">
 			<div class="wrap">
 				<img id="profile-img" src="/static/images/user.png" class="online" alt="" />
-				<p id="fromFullName"></p>
+				<p id="fromlastname"></p>
 			</div>
 		</div>
 		<div id="search">
@@ -38,7 +42,7 @@
 						<span class="contact-status busy"></span>
 						<img src="/static/images/user.png" alt="" />
 						<div class="meta">
-							<p class="name" id="smallToFullName"></p>
+							<p class="name" id="smallTolastname"></p>
 							<p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
 						</div>
 					</div>
@@ -46,14 +50,14 @@
 			</ul>
 		</div>
 		<div id="bottom-bar">
-			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
-			<button id="settings"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> <span>Logout</span></button>
+			<button id="addcontact" onclick="createUsers()"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Create Users</span></button>
+			<button id="settings" onclick="logout()"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> <span>Logout</span></button>
 		</div>
 	</div>
 	<div class="content">
 		<div class="contact-profile">
 			<img src="/static/images/user.png" alt="" />
-			<p id="toFullName"></p>
+			<p id="tolastname"></p>
 		</div>
 		<div class="messages">
 			<ul>
@@ -70,7 +74,7 @@
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script >$(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
-
+var lastRefresh;
 var idUserConnected;
 var idUserToTalk;
 
@@ -90,15 +94,22 @@ function startSession() {
 			alert(JSON.stringify(response));
 		}
 	});
+	getNameUserConnected(idUserConnected);
 	getAllUsers(idUserConnected);
-	talkTo(2);
 }
 
-function somef(a) {
-	//idUserToTalk = val;
+function updateMessages(){
+		$('.messages ul').empty();
+		getDataChats();
+}
+
+
+function changeWindow(val) {
+	idUserToTalk = val;
 	console.log("changeWindow");
-	//$('.messages ul').empty();
-	//getDataChats();
+	updateMessages();
+	scrollDown();
+	setInterval(updateMessages, 6000);
 }
 
 function talkTo(idUserToTalk_) {
@@ -108,16 +119,17 @@ function talkTo(idUserToTalk_) {
 }
 
 function getDataChats(){
+	//var chatsDescargados = new Array();
+
 	console.log("getDataChats");
 	getNameUserToTalk(idUserToTalk);
-	getNameUserConnected(idUserConnected);
-
 	var url = '/chat/getConversation/'.concat(idUserConnected.toString(),'/and/',idUserToTalk.toString());
 	$.ajax({
 		url: url,
 		type:'GET',
 		contentType: 'application/json',
 		dataType:'json',
+		async: false,
 		success: function(response){
 			var arrayLength = response.length;
 			for (var i = 0; i < arrayLength; i++) {
@@ -128,12 +140,35 @@ function getDataChats(){
 					whoIs = "replies"
 				}
 				$('<li class="'+whoIs+'"><img src="/static/images/user.png" alt="" /><p>' + response[i]["content"] + '</p></li>').appendTo($('.messages ul'));
+				//chatsDescargados.push(response[i]["id"]);
 				}
+		},
+		error: function(response){
+			alert("Es el mejor momento para comenzar a hablar con un nuevo amigo! 😁");
+		}
+	});
+
+/*
+	var message = JSON.stringify({
+                "chatsDescargados": chatsDescargados
+				});
+
+	$.ajax({
+		url:'/chat/firstCheck/'.concat(idUserConnected.toString(),'/and/',idUserToTalk.toString()),
+		type:'PUT',
+		contentType: 'application/json',
+		data : message,
+		dataType:'json',
+		success: function(response){
+			alert(JSON.stringify(response));
 		},
 		error: function(response){
 			alert(JSON.stringify(response));
 		}
+
 	});
+
+*/
 
 	}
 
@@ -170,22 +205,36 @@ $("#status-options ul li").click(function() {
 	$("#status-options").removeClass("active");
 });
 
+function logout(){
+	window.location.href = "http://127.0.0.1:8080/logout";
+
+
+}
+
+function createUsers(){
+	window.location.href = "http://127.0.0.1:8080/static/crud_users.html";
+}
+
+function scrollDown(){
+	$(".messages").animate({ scrollTop: $(document).height()+10000 }, "fast");
+}
 
 function newMessage() {
 	message = $('#messageInput').val();
-	$('<li class="sent"><img src="/static/images/user.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
-	$('.message-input input').val(null);
-	$('.contact.active .preview').html('<span>You: </span>' + message);
-	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
-	return message;
-
+	if($.trim(message) != '') {
+		$('<li class="sent"><img src="/static/images/user.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+		$('.message-input input').val(null);
+		$('#lastChat').html('<span>You: </span>' + message);
+		scrollDown();
+		return message;
+	}
 };
 
 function sendMessage(textMessage) {
 	var message = JSON.stringify({
                 "content": textMessage,
                 "user_from_id": idUserConnected,
-				"user_to_id": idUserToTalk
+								"user_to_id": idUserToTalk
 				});
 	$.ajax({
             url:'/newMesssage',
@@ -193,11 +242,10 @@ function sendMessage(textMessage) {
             contentType: 'application/json',
             data : message,
             dataType:'json',
-            success: function(response){
-            	alert(JSON.stringify(response));
-            },
             error: function(response){
-            	alert(JSON.stringify(response));
+							if (response['status']!=200){
+								alert("Hola! Hubo un error al enviar su mensaje. Verifique que esté escribiendo su mensaje dentro del recuadro permitido.");
+							}
             }
         });
 }
@@ -206,19 +254,19 @@ function sendMessage(textMessage) {
 function getNameUserToTalk(id) {
 	console.log("getNameUserToTalk");
 	var url = '/user/'.concat(id.toString());
-	var fullname;
+	var lastname;
 	$.ajax({
 		url: url,
 		type:'GET',
 		contentType: 'application/json',
 		dataType:'json',
 		success: function(response){
-			fullname = "".concat(response["name"]," ",response["fullname"])
-			$('#smallToFullName').text(fullname);
-			$('#toFullName').text(fullname);
+			lastname = "".concat(response["name"]," ",response["lastname"])
+			$('#smallTolastname').text(lastname);
+			$('#tolastname').text(lastname);
 		},
 		error: function(response){
-			alert("ERROR");
+			alert(JSON.stringify(response));
 		}
 	});
 }
@@ -226,18 +274,18 @@ function getNameUserToTalk(id) {
 function getNameUserConnected(id) {
 	console.log("getNameUserConnected");
 	var url = '/user/'.concat(id.toString());
-	var fullname;
+	var lastname;
 	$.ajax({
 		url: url,
 		type:'GET',
 		contentType: 'application/json',
 		dataType:'json',
 		success: function(response){
-			fullname = "".concat(response["name"]," ",response["fullname"])
-			$('#fromFullName').text(fullname);
+			lastname = "".concat(response["name"]," ",response["lastname"])
+			$('#fromlastname').text(lastname);
 		},
 		error: function(response){
-			alert("ERROR");
+			alert(JSON.stringify(response));
 		}
 	});
 }
@@ -246,7 +294,7 @@ function getNameUserConnected(id) {
 function getAllUsers(id){
 	console.log("getAllUsers");
 	var url = '/user/allExcept/'.concat(id.toString());
-	var fullname;
+	var lastname;
 	$.ajax({
 		url: url,
 		type:'GET',
@@ -255,15 +303,33 @@ function getAllUsers(id){
 		success: function(response){
 			var i = 0;
 			$.each(response, function () {
-				fullname = "".concat(response[i]["name"]," ",response[i]["fullname"]);
-				id = response[i]["id"];
-
-				f = '<li class="contact"><div class="wrap"><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p  class="name">';
-				f += fullname;
-
-				f += '</p><p class="preview">Last chat sent.</p> </div> </div> </li>';
-
-				f += '<input type="button" onclick="somef(3)"/>';
+				lastname = "".concat(response[i]["name"]," ",response[i]["lastname"]);
+				idUser = response[i]["id"];
+				var lastMessage;
+				var lastMessageFrom;
+				var who;
+				$.ajax({
+					url: '/chat/getLastConversation/'.concat(idUser.toString(),'/and/',id.toString()),
+					type:'GET',
+					contentType: 'application/json',
+					dataType:'json',
+					async: false,
+					success: function(response){
+						lastMessage = response.content;
+						lastMessageFrom = response.user_from_id;
+					}
+					});
+				f = '<li class="contact" ><div class="wrap" onclick="changeWindow('+idUser+')" ><span class="contact-status online"></span><img src="/static/images/user.png" alt="" /> <div class="meta"> <p  class="name">';
+				f += lastname;
+				if(lastMessageFrom == id){
+					who = 'You: ';
+				}else if (lastMessage != null) {
+					who = response[i]["name"]+": ";
+				}else{
+					who = '¡Soy nuevo aquí!';
+					lastMessage = ''
+				}
+				f += '</p><p class="preview" id="lastChat"><span>'+who+'</span>'+lastMessage+'</p> </div> </div> </li>';
 				i += 1;
 				$('#contacts ul').append(f);
 

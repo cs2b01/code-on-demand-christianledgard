@@ -2,16 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16051b00-6d4f-42dd-a100-f5cc678983a2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/chat.db" beforeDir="false" afterPath="$PROJECT_DIR$/web/chat.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/chat.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/model/entities.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/model/entities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/crud_chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/crud_chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/crud_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/crud_users.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="code-on-demand-christianledgard" />
@@ -21,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="86" column="43" lean-forward="true" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+            <state relative-caret-position="99">
+              <caret line="163" column="40" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="40" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
@@ -31,10 +50,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/templates/chat.html">
+        <entry file="file://$PROJECT_DIR$/web/model/entities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
+            <state relative-caret-position="270">
+              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#78#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,8 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>calc(100%</find>
-      <find>calc(100% - 90</find>
       <find>calc(100% -</find>
       <find>clip</find>
       <find>img</find>
@@ -75,12 +95,14 @@
       <find>http://emilcarlsson.se/assets/louislitt.png</find>
       <find>fromFullName</find>
       <find>ERROR</find>
-      <find>getAllUsers</find>
       <find>wrap</find>
       <find>getC</find>
       <find>changeW</find>
-      <find>talkTo</find>
       <find>changeWindow</find>
+      <find>sort</find>
+      <find>getAllUsers</find>
+      <find>talkTo</find>
+      <find>logged</find>
     </findStrings>
     <replaceStrings>
       <replace>/static/images/user.png</replace>
@@ -104,25 +126,28 @@
         <option value="$PROJECT_DIR$/web/static/css/chat_styles.css" />
         <option value="$PROJECT_DIR$/web/templates/crud_users.js" />
         <option value="$PROJECT_DIR$/web/templates/crud_chat.html" />
-        <option value="$PROJECT_DIR$/web/model/entities.py" />
-        <option value="$PROJECT_DIR$/web/templates/crud_chat.js" />
         <option value="$PROJECT_DIR$/web/templates/login2.html" />
         <option value="$PROJECT_DIR$/web/templates/login.html" />
         <option value="$PROJECT_DIR$/web/server.py" />
         <option value="$PROJECT_DIR$/web/templates/chat.html" />
+        <option value="$PROJECT_DIR$/web/templates/crud_chat.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ed217d1f-cf26-4ff0-afc5-f733b4bf910c/console.sql" />
+        <option value="23c22aaf-db0f-4c4f-96bf-6034fbfe926b/consoles/Connection" />
+        <option value="$PROJECT_DIR$/web/model/entities.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="777" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -139,7 +164,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Course" />
     </panes>
   </component>
@@ -222,39 +246,58 @@
       <workItem from="1559835661458" duration="37255000" />
       <workItem from="1560186546423" duration="2734000" />
       <workItem from="1560355712612" duration="7944000" />
+      <workItem from="1560364482083" duration="1089000" />
+      <workItem from="1560379359575" duration="571000" />
+      <workItem from="1560380703053" duration="343000" />
+      <workItem from="1560383640113" duration="997000" />
+      <workItem from="1560437579703" duration="597000" />
+      <workItem from="1560440763180" duration="812000" />
+      <workItem from="1560480579469" duration="4340000" />
+      <workItem from="1560659838407" duration="330000" />
+      <workItem from="1560663207476" duration="4314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50623000" />
+    <option name="totallyTimeSpent" value="64016000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" id="Favorites" order="0" sideWeight="0.50364965" side_tool="true" visible="true" weight="0.22859451" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49635038" visible="true" weight="0.22859451" />
+      <window_info id="Favorites" order="0" sideWeight="0.504717" side_tool="true" weight="0.23182553" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.495283" visible="true" weight="0.25444266" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info id="DB Browser" order="3" weight="0.32885906" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Python Console" order="1" />
+      <window_info id="DB Browser" order="3" weight="0.32875606" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32861635" />
+      <window_info anchor="bottom" id="Python Console" order="1" weight="0.32861635" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32861635" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.39863014" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.30072993" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32861635" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.39308175" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="DB Execution Console" order="11" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32861635" />
+      <window_info anchor="bottom" id="DB Execution Console" order="11" weight="0.32861635" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="12" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="14" />
+      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32861635" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32956383" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -287,7 +330,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/code_on_demand_christianledgard$server.coverage" NAME="server Coverage Results" MODIFIED="1560364357050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
+    <SUITE FILE_PATH="coverage/code_on_demand_christianledgard$server.coverage" NAME="server Coverage Results" MODIFIED="1560731828421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/database/connector.py">
@@ -365,20 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/crud_chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/model/entities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/login2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -412,20 +441,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/crud_chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ed217d1f-cf26-4ff0-afc5-f733b4bf910c/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="db://23c22aaf-db0f-4c4f-96bf-6034fbfe926b/consoles/Connection">
+      <provider selected="true" editor-type-id="0.CONSOLE">
+        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="86" column="43" lean-forward="true" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+        <state relative-caret-position="99">
+          <caret line="163" column="40" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="40" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/chat.html">
+    <entry file="file://$PROJECT_DIR$/web/model/entities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
+        <state relative-caret-position="270">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -42,6 +42,10 @@ $(function(){
             dataType: "datetime",
             allowEditing: false
         }, {
+            dataField: "last_seen",
+            dataType: "datetime",
+            allowEditing: false
+        }, {
             dataField: "user_from_id",
             lookup: {
                 dataSource: DevExpress.data.AspNet.createStore({

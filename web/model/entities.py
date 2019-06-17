@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Sequence, DateTime, ForeignKey
+from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from database import connector
 from datetime import datetime
@@ -7,7 +8,7 @@ class User(connector.Manager.Base):
     __tablename__ = 'users'
     id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
     name = Column(String(50))
-    fullname = Column(String(50))
+    lastname = Column(String(50))
     password = Column(String(12))
     username = Column(String(12))
 
@@ -16,6 +17,7 @@ class Message(connector.Manager.Base):
     id = Column(Integer, Sequence('message_id_seq'), primary_key=True)
     content = Column(String(500))
     sent_on = Column(default=datetime.now())
+    last_seen = Column(DateTime())
     user_from_id = Column(Integer, ForeignKey('users.id'))
     user_to_id = Column(Integer, ForeignKey('users.id'))
     user_from = relationship(User, foreign_keys=[user_from_id])

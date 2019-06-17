@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Chat by Ledgard</title>
 	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="/static/login/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/login/vendor/bootstrap/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/login/vendor/animate/animate.css">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/login/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/login/vendor/select2/select2.min.css">
@@ -23,7 +23,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -33,11 +33,11 @@
 
 				<div class="login100-form validate-form">
 					<span class="login100-form-title">
-						Member Login
+						Chat
 					</span>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="username" placeholder="User" id="username">
+						<input class="input100" type="text" name="username" placeholder="Username" id="username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -51,7 +51,7 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" value="login" onclick="getData()">
 							Login
@@ -64,7 +64,7 @@
 						<img id="ok" src="/static/login/images/correct.png" style="display: none"/>
 						<img id="fail" src="/static/login/images/fail.png" style="display: none"/>
 					</div>
-				
+
 					<!--
 					<div class="text-center p-t-12">
 						<span class="txt1">
@@ -105,7 +105,7 @@
             dataType:'json',
             success: function(response){
                 //alert(JSON.stringify(response));
-				$('#action').html(response['statusText']);				
+				$('#action').html(response['statusText']);
             },
             error: function(response){
 				//alert(JSON.stringify(response));
@@ -123,10 +123,10 @@
 
 
 	</script>
-	
 
-	
-<!--===============================================================================================-->	
+
+
+<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
